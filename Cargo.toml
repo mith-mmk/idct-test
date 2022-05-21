@@ -1,0 +1,18 @@
+[package]
+name = "idct_test"
+version = "0.1.0"
+authors = ["mith@mmk"]
+edition = "2021"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = 3

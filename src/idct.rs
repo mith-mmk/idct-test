@@ -176,7 +176,7 @@ pub fn llm_idct(f: &[i32]) -> Vec<u8> {
         ff[4 * 8 + i] = (x3 - x4) * m0;  
     }
     
-    let val = ff.iter().map(|i| ((*i + 128.5) as i32).clamp(0,255) as u8).collect();
+    let val = ff.iter().map(|i| ((*i + 128.0) as i32).clamp(0,255) as u8).collect();
     val
 }
 // AAN
@@ -325,14 +325,14 @@ pub fn fast_idct(f: &[i32]) -> Vec<u8> {
         let b6 = c6 - c7;
         let b7 = c7;
         
-        vals[i * 8 + 0] = ((b0 + b7 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 1] = ((b1 + b6 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 2] = ((b2 + b5 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 3] = ((b3 + b4 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 4] = ((b3 - b4 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 5] = ((b2 - b5 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 6] = ((b1 - b6 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 7] = ((b0 - b7 + 128.5) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 0] = ((b0 + b7 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 1] = ((b1 + b6 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 2] = ((b2 + b5 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 3] = ((b3 + b4 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 4] = ((b3 - b4 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 5] = ((b2 - b5 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 6] = ((b1 - b6 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 7] = ((b0 - b7 + 128.0) as i32).clamp(0,255) as u8;
     }
     vals.to_vec()
 }
@@ -483,14 +483,14 @@ pub fn fast_idct_f64(f: &[i32]) -> Vec<u8> {
         let b6 = c6 - c7;
         let b7 = c7;
         
-        vals[i * 8 + 0] = ((b0 + b7 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 1] = ((b1 + b6 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 2] = ((b2 + b5 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 3] = ((b3 + b4 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 4] = ((b3 - b4 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 5] = ((b2 - b5 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 6] = ((b1 - b6 + 128.5) as i32).clamp(0,255) as u8;
-        vals[i * 8 + 7] = ((b0 - b7 + 128.5) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 0] = ((b0 + b7 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 1] = ((b1 + b6 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 2] = ((b2 + b5 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 3] = ((b3 + b4 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 4] = ((b3 - b4 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 5] = ((b2 - b5 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 6] = ((b1 - b6 + 128.0) as i32).clamp(0,255) as u8;
+        vals[i * 8 + 7] = ((b0 - b7 + 128.0) as i32).clamp(0,255) as u8;
     }
     vals.to_vec()
 }
